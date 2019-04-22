@@ -14,4 +14,4 @@ class GifList extends React.Component {
 }
 
 
-export default GifList 
+export default GifList
