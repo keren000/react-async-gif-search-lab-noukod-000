@@ -8,10 +8,7 @@ import GifList from '../components/GifList';
     gifs: []
   }
 
-   componentDidMount() {
-    this.submitFormHandler()
-  }
-
+   
    submitFormHandler = (query) => {
         fetch(`https://api.giphy.com/v1/gifs/search?q=${query}&api_key=dc6zaTOxFJmzC&rating=g&limit=3`)
       .then(response => response.json())
