@@ -1,39 +1,33 @@
 
 // create your App component here
 import React, { Component } from 'react'
-import GifListContainer from '../containers/GifListContainer'
 
+class GifSearch extends React.Component {
+	state = {
+    	query: ""
+  	}
 
-class GifSearch extends Component {
-
-  state = {
-      query: ""
-  }
-  
-  
- handleSubmit = event => {
-   event.preventDefault();
-   this.props.fetchGIFs(this.state.query)
- }
-
-  handleChange = event => {
-   this.setState(
-     {query: event.target.value}
-   );
- }
-
- render() {
+  render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label>
-          Gif type:
-          <input type="text" value={this.state.query} onChange={this.handleChange} />
-        </label>
-        <input type="submit" value="Submit" />
-      </form>
-    );
+      <div>
+        <form onSubmit={this.handleSubmit}>
+         <input  type="text" value={this.state.query} onChange={this.handleChange} />
+         <input type="submit" value="Search"/>
+        </form>
+      </div>
+    )
+  }
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+    this.props.searchSubmit(this.state.query);
+  }
+
+  handleChange = (event) => {
+    this.setState({
+      query: event.target.value
+    })
   }
 }
-
 
 export default GifSearch
