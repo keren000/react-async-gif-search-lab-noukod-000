@@ -26,6 +26,10 @@ import GifList from '../components/GifList';
       </div>
     )
   }
+  componentDidMount() {
+    this.submitFormHandler()
+  }
+
 }
 
  export default GifListContainer 
